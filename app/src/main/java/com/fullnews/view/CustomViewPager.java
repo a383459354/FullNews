@@ -10,7 +10,7 @@ import android.util.AttributeSet;
 
 public class CustomViewPager extends ViewPager {
 
-    private boolean isCanScroll = true;
+    private boolean isCanScroll = false;
 
     public CustomViewPager(Context context) {
         super(context);
