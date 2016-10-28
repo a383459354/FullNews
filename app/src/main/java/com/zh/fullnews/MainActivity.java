@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -22,14 +23,30 @@ public class MainActivity extends AppCompatActivity{
     private ViewPager mViewPager;
     private RelativeLayout relativelayout;
     private List<String> tabIndicators;
+    private List<Integer> tabImage;
     private List<Fragment> tabFragments;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initData();
         initView();
         initTab();
+    }
+
+    private void initData() {
+        tabIndicators = new ArrayList<>();
+        tabIndicators.add("首页");
+        tabIndicators.add("视频");
+        tabIndicators.add("发现");
+        tabIndicators.add("我");
+
+        tabImage=new ArrayList<>();
+        tabImage.add(R.drawable.selector_menu_home);
+        tabImage.add(R.drawable.selector_menu_video);
+        tabImage.add(R.drawable.selector_menu_discover);
+        tabImage.add(R.drawable.selector_menu_personage);
     }
 
     private void initTab() {
@@ -42,6 +59,8 @@ public class MainActivity extends AppCompatActivity{
                 itemTab.setCustomView(R.layout.item_tab_layout_custom);
                 TextView itemTv = (TextView) itemTab.getCustomView().findViewById(R.id.tv_menu_item);
                 itemTv.setText(tabIndicators.get(i));
+                ImageView itemIv=(ImageView)itemTab.getCustomView().findViewById(R.id.iv_menu_item);
+                itemIv.setImageResource(tabImage.get(i));
             }
         }
         mTablayout.getTabAt(0).getCustomView().setSelected(true);
@@ -51,11 +70,6 @@ public class MainActivity extends AppCompatActivity{
         mTablayout=(TabLayout)this.findViewById(R.id.main_tab);
         mTablayout.setTabMode(TabLayout.MODE_FIXED);
         mViewPager = (ViewPager) findViewById(R.id.main_viewpage);
-
-        tabIndicators = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            tabIndicators.add("Tab " + i);
-        }
         tabFragments = new ArrayList<>();
         for (String s : tabIndicators) {
             tabFragments.add(HomeFragment.newInstance(s));
