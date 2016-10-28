@@ -8,7 +8,8 @@
         android:id="@+id/main_viewpage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></com.fullnews.view.CustomViewPager>
+        android:layout_weight="1"
+        android:isScrollContainer="true"></com.fullnews.view.CustomViewPager>
 
     <android.support.design.widget.TabLayout
         android:id="@+id/main_tab"

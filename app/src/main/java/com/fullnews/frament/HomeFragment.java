@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.zh.fullnews.R;
 
@@ -28,8 +29,8 @@ public class HomeFragment  extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View contentView = inflater.inflate(R.layout.activity_home, null);
-//        ((TextView) contentView.findViewById(R.id.tv_content)).setText(getArguments().getString(EXTRA_CONTENT));
+        View contentView = inflater.inflate(R.layout.activity_video, null);
+        ((TextView) contentView.findViewById(R.id.textView4)).setText(getArguments().getString(EXTRA_CONTENT));
         return contentView;
     }
 
