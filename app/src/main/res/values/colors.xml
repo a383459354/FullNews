@@ -8,7 +8,7 @@
 
 
     <color name="colorGreen">#3cda38</color>
-    <color name="colorRed">#ec0909</color>
+    <color name="colorRed">#00ccff</color>
     <color name="colorYellow">#ff8800</color>
 
     <color name="colorPrimary">#3f51b5</color>
@@ -20,4 +20,11 @@
     <color name="transparent">#000</color>
     <color name="black">#000</color>
     <color name="white">#fff</color>
+
+    <color name="tab_gray">#669999</color>
+    <color name="tab_blue">#00ccff</color>
+
+    <color name="header">#379be9</color>
+    <color name="header_text">#FFFFFF</color>
+
 </resources>

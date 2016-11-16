@@ -2,7 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#379be9"
+        android:layout_height="50dp">
+
+        <TextView
+            android:text="热点新闻"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:id="@+id/textView4"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -12,13 +32,16 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="335dp"
-            android:layout_height="50dp">
+            android:layout_height="40dp"
+            android:background="#ffffff"
+            app:tabTextColor="@color/tab_gray"
+            app:tabSelectedTextColor="@color/tab_blue">
 
         </android.support.design.widget.TabLayout>
 
         <ImageButton
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:id="@+id/imageButton_add"
             android:background="@color/colorHomeAdd"
             android:src="@mipmap/navigation_home_add" />

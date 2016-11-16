@@ -20,8 +20,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fullnews.entity.HomeNavigationItemEntity;
-import com.fullnews.view.OnDragVHListener;
-import com.fullnews.view.OnItemMoveListener;
+import com.fullnews.listener.OnDragVHListener;
+import com.fullnews.listener.OnItemMoveListener;
 import com.zh.fullnews.R;
 
 import java.util.List;

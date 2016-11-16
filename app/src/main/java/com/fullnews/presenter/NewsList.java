@@ -1,6 +1,6 @@
 package com.fullnews.presenter;
 
-import com.fullnews.entity.NewsBeans;
+import com.fullnews.entity.JiaodianBeans;
 
 import java.util.List;
 
@@ -12,5 +12,10 @@ public interface NewsList {
     /**
      * 获取新闻列表
      */
-    public void getNewsDataList(List<NewsBeans.ListBean> dataList);
+    public void getNewsDataList(List<JiaodianBeans.DataBean> dataList);
+
+    /**
+     * 获取更多新闻列表
+     */
+    public void getNewsMoreDataList(List<JiaodianBeans.DataBean> dataList);
 }

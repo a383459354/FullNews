@@ -1,17 +1,23 @@
 package com.zh.fullnews;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.fullnews.adapter.MainPageAdapter;
-import com.fullnews.frament.HomeFragment;
+import com.fullnews.ui.fragment.FunnyFragment;
+import com.fullnews.ui.fragment.HomeFragment;
+import com.fullnews.ui.fragment.BookFragment;
+import com.fullnews.ui.fragment.VideoFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +36,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+//        setTranslucentSystemUI();
         initData();
         initView();
         initTab();
@@ -71,11 +78,23 @@ public class MainActivity extends AppCompatActivity{
         mTablayout.setTabMode(TabLayout.MODE_FIXED);
         mViewPager = (ViewPager) findViewById(R.id.main_viewpage);
         tabFragments = new ArrayList<>();
-        for (String s : tabIndicators) {
-            tabFragments.add(HomeFragment.newInstance(s));
-        }
+        tabFragments.add(HomeFragment.newInstance(tabIndicators.get(0)));
+        tabFragments.add(VideoFragment.newInstance(tabIndicators.get(1)));
+        tabFragments.add(BookFragment.newInstance(tabIndicators.get(2)));
+        tabFragments.add(FunnyFragment.newInstance(tabIndicators.get(3)));
+
         mAdapter = new MainPageAdapter(getSupportFragmentManager(),tabFragments,tabIndicators);
         mViewPager.setAdapter(mAdapter);
+    }
+
+    private void setTranslucentSystemUI() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window window = getWindow();
+            // Translucent status bar
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            // Translucent navigation bar
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        }
     }
 
 }

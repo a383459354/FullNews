@@ -32,7 +32,8 @@ public class MainPageAdapter extends FragmentPagerAdapter {
     }
 
     @Override
-    public CharSequence getPageTitle(int position) {
+    public CharSequence getPageTitle(int position)
+    {
         return tabIndicators.get(position);
     }
 }

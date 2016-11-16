@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.fullnews.entity.NewsBeans;
+import com.fullnews.utils.ConversionTime;
 import com.zh.fullnews.R;
 
 import java.util.List;
@@ -67,7 +68,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (holder instanceof FirstHolder) {
             ((FirstHolder) holder).tvTitle.setText(mList.get(position).getTitle());
             ((FirstHolder) holder).tvSource.setText(mList.get(position).getLaiyuan());
-            ((FirstHolder) holder).tvPubDate.setText(mList.get(position).getTime());
+            ((FirstHolder) holder).tvPubDate.setText(ConversionTime.pubDate(mList.get(position).getTime()));
         } else if (holder instanceof SecondHolder) {
             ((SecondHolder) holder).ivImg.setImageResource(R.mipmap.ic_crop_original_white_48dp);
             String url = mList.get(position).getImg_01().toString();
@@ -75,7 +76,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             ImgGlide(url, ((SecondHolder) holder).ivImg);
             ((SecondHolder) holder).tvTitle.setText(mList.get(position).getTitle());
             ((SecondHolder) holder).tvSource.setText(mList.get(position).getLaiyuan());
-            ((SecondHolder) holder).tvPubDate.setText(mList.get(position).getTime());
+            ((SecondHolder) holder).tvPubDate.setText(ConversionTime.pubDate(mList.get(position).getTime()));
         } else if (holder instanceof ThirdHolder) {
             ((ThirdHolder) holder).ivImg1.setImageResource(R.mipmap.ic_crop_original_white_48dp);
             ((ThirdHolder) holder).ivImg2.setImageResource(R.mipmap.ic_crop_original_white_48dp);
@@ -90,7 +91,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
             ((ThirdHolder) holder).tvTitle.setText(mList.get(position).getTitle());
             ((ThirdHolder) holder).tvSource.setText(mList.get(position).getLaiyuan());
-            ((ThirdHolder) holder).tvPubDate.setText(mList.get(position).getTime());
+            ((ThirdHolder) holder).tvPubDate.setText(ConversionTime.pubDate(mList.get(position).getTime()));
         }else{
         }
         if (mOnItemClickListener!=null){
