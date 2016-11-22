@@ -13,10 +13,5 @@ public interface BookHomeList {
     /**
      * 获取小说列表
      */
-    public void getBookDataList(List<BookHomeBeans.DataBean.PhBean.BookListBean> dataList);
-
-    /**
-     * 获取更多小说子列表
-     */
-    public void getBookMoreDataList(List<BookHomeBeans.DataBean.PhBean.BookListBean> dataList);
+    public void getBookDataList(List<BookHomeBeans.RankingBean.BooksBean> dataList);
 }

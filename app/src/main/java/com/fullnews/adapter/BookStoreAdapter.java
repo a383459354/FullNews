@@ -22,13 +22,13 @@ import java.util.List;
 
 public class BookStoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<BookHomeBeans.DataBean.PhBean.BookListBean> mList;
+    private List<BookHomeBeans.RankingBean.BooksBean> mList;
     private Context mContext;
 
     private BookStoreAdapter.OnItemClickListener mOnItemClickListener;
     private BookStoreAdapter.OnItemLongClickListener mOnItemLongClickListener;
 
-    public BookStoreAdapter(Context context, List<BookHomeBeans.DataBean.PhBean.BookListBean> list) {
+    public BookStoreAdapter(Context context, List<BookHomeBeans.RankingBean.BooksBean> list) {
         this.mContext = context;
         this.mList = list;
     }
@@ -47,11 +47,11 @@ public class BookStoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof BookStoreAdapter.BookStoreHolder) {
-            Log.d("title---", position + "--" + mList.get(position).getBookname());
-            ((BookStoreAdapter.BookStoreHolder) holder).tvTitle.setText(mList.get(position).getBookname());
-            ((BookStoreAdapter.BookStoreHolder) holder).tvBookRead.setText(mList.get(position).getNum_click()+"次阅读");
-            ((BookStoreAdapter.BookStoreHolder) holder).tvBookInfo.setText(mList.get(position).getBook_info());
-            ImgGlide(mList.get(position).getBook_cover(), ((BookStoreHolder) holder).ivBook);
+            ((BookStoreAdapter.BookStoreHolder) holder).tvTitle.setText(mList.get(position).getTitle());
+            ((BookStoreAdapter.BookStoreHolder) holder).tcAuther.setText(mList.get(position).getAuthor());
+            ((BookStoreAdapter.BookStoreHolder) holder).tvBookRead.setText(mList.get(position).getLatelyFollower()+"人在看");
+            ((BookStoreAdapter.BookStoreHolder) holder).tvBookInfo.setText(mList.get(position).getShortIntro());
+            ImgGlide(mList.get(position).getCover(), ((BookStoreHolder) holder).ivBook);
         }
         if (mOnItemClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -101,12 +101,13 @@ public class BookStoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public class BookStoreHolder extends RecyclerView.ViewHolder {
 
-        TextView tvTitle, tvBookRead, tvBookInfo;
+        TextView tvTitle, tcAuther, tvBookRead, tvBookInfo;
         ImageView ivBook;
 
         public BookStoreHolder(View itemView) {
             super(itemView);
             tvTitle = (TextView) itemView.findViewById(R.id.textView_book_store_title);
+            tcAuther = (TextView) itemView.findViewById(R.id.textView_book_auther);
             tvBookRead = (TextView) itemView.findViewById(R.id.textView_book_read);
             tvBookInfo = (TextView) itemView.findViewById(R.id.textView_book_info);
             ivBook = (ImageView) itemView.findViewById(R.id.imageview_book_store);
@@ -114,7 +115,7 @@ public class BookStoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     public void ImgGlide(String url, ImageView imageView) {
-        url="http://oss-asq-img.11222.cn/bcv/middle/"+url;
+        url="http://statics.zhuishushenqi.com"+url;
         Glide.with(mContext)
                 .load(url)
                 .centerCrop()

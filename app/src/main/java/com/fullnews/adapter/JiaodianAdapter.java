@@ -33,7 +33,6 @@ public class JiaodianAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public JiaodianAdapter(Context context, List<JiaodianBeans.DataBean> list) {
         this.mContext = context;
         this.mList = list;
-        Log.d("size00000000000", list.size() + "");
     }
 
     @Override

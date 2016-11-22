@@ -1,177 +1,311 @@
 package com.fullnews.entity;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2016/11/16 0016.
  */
 
 public class BookDetailsBeans {
 
-    private DataBean data;
+    /**
+     * _id : 51d11e782de6405c45000068
+     * author : 天蚕土豆
+     * cover : /agent/http://image.cmfu.com/books/2750457/2750457.jpg
+     * creater : iPhone 4S
+     * longIntro : 大千世界，位面交汇，万族林立，群雄荟萃，一位位来自下位面的天之至尊，在这无尽世界，演绎着令人向往的传奇，追求着那主宰之路。
+     无尽火域，炎帝执掌，万火焚苍穹。
+     武境之内，武祖之威，震慑乾坤。
+     西天之殿，百战之皇，战威无可敌。
+     北荒之丘，万墓之地，不死之主镇天地。
+     ......
+     少年自北灵境而出，骑九幽冥雀，闯向了那精彩绝伦的纷纭世界，主宰之路，谁主沉浮？
+     大千世界，万道争锋，吾为大主宰。
+     * title : 大主宰
+     * cat : 玄幻
+     * majorCate : 玄幻
+     * minorCate : 异界大陆
+     * _le : false
+     * allowMonthly : false
+     * allowVoucher : true
+     * hasCp : true
+     * postCount : 142462
+     * latelyFollower : 336088
+     * latelyFollowerBase : 0
+     * followerCount : 63161
+     * wordCount : 4364881
+     * serializeWordCount : 2701
+     * minRetentionRatio : 0
+     * retentionRatio : 48.47
+     * updated : 2016-11-16T15:14:50.268Z
+     * isSerial : true
+     * chaptersCount : 1373
+     * lastChapter : 第1412章 白龙机缘
+     * gender : ["male"]
+     * tags : ["玄幻","热血","架空","异界大陆","巅峰","修炼","主宰"]
+     * donate : false
+     * copyright : 阅文集团正版授权
+     */
 
-    public DataBean getData() {
-        return data;
+    private String _id;
+    private String author;
+    private String cover;
+    private String creater;
+    private String longIntro;
+    private String title;
+    private String cat;
+    private String majorCate;
+    private String minorCate;
+    private boolean _le;
+    private boolean allowMonthly;
+    private boolean allowVoucher;
+    private boolean hasCp;
+    private int postCount;
+    private int latelyFollower;
+    private int latelyFollowerBase;
+    private int followerCount;
+    private int wordCount;
+    private int serializeWordCount;
+    private int minRetentionRatio;
+    private String retentionRatio;
+    private String updated;
+    private boolean isSerial;
+    private int chaptersCount;
+    private String lastChapter;
+    private boolean donate;
+    private String copyright;
+    private List<String> gender;
+    private List<String> tags;
+
+    public String get_id() {
+        return _id;
     }
 
-    public void setData(DataBean data) {
-        this.data = data;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
-    public static class DataBean {
-        /**
-         * cover : http://oss-asq-img.11222.cn/bcv/middle/201604261230511812.jpg
-         * class_name : 大陆
-         * author_name : 乱
-         * introduction :
-         * book_info : 一觉醒来，世界大变。熟悉的高中传授的是魔法，告诉大家要成为一名出色的魔法师。居住的都市之外游荡着袭击人类的魔物妖兽，虎视眈眈。
-         * author_id : 1121
-         * state : 1
-         * id : 5546147
-         * chapterid : 709716
-         * topic : 第1358章 反其道而行
-         * full_price_wap : 0.0
-         * date_updated : 2016-11-16 03:00:03
-         * size : 71550
-         * bookname : 全职法师
-         * jd_url : http://wap.cmread.com/r/409651794/409654099/index.htm?page=1&cm=M3080044&fr=89
-         */
+    public String getAuthor() {
+        return author;
+    }
 
-        private BkBean bk;
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-        public BkBean getBk() {
-            return bk;
-        }
+    public String getCover() {
+        return cover;
+    }
 
-        public void setBk(BkBean bk) {
-            this.bk = bk;
-        }
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
 
-        public static class BkBean {
-            private String cover;
-            private String class_name;
-            private String author_name;
-            private String introduction;
-            private String book_info;
-            private String author_id;
-            private String state;
-            private String id;
-            private String chapterid;
-            private String topic;
-            private String date_updated;
-            private int size;
-            private String bookname;
-            private String jd_url;
+    public String getCreater() {
+        return creater;
+    }
 
-            public String getCover() {
-                return cover;
-            }
+    public void setCreater(String creater) {
+        this.creater = creater;
+    }
 
-            public void setCover(String cover) {
-                this.cover = cover;
-            }
+    public String getLongIntro() {
+        return longIntro;
+    }
 
-            public String getClass_name() {
-                return class_name;
-            }
+    public void setLongIntro(String longIntro) {
+        this.longIntro = longIntro;
+    }
 
-            public void setClass_name(String class_name) {
-                this.class_name = class_name;
-            }
+    public String getTitle() {
+        return title;
+    }
 
-            public String getAuthor_name() {
-                return author_name;
-            }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-            public void setAuthor_name(String author_name) {
-                this.author_name = author_name;
-            }
+    public String getCat() {
+        return cat;
+    }
 
-            public String getIntroduction() {
-                return introduction;
-            }
+    public void setCat(String cat) {
+        this.cat = cat;
+    }
 
-            public void setIntroduction(String introduction) {
-                this.introduction = introduction;
-            }
+    public String getMajorCate() {
+        return majorCate;
+    }
 
-            public String getBook_info() {
-                return book_info;
-            }
+    public void setMajorCate(String majorCate) {
+        this.majorCate = majorCate;
+    }
 
-            public void setBook_info(String book_info) {
-                this.book_info = book_info;
-            }
+    public String getMinorCate() {
+        return minorCate;
+    }
 
-            public String getAuthor_id() {
-                return author_id;
-            }
+    public void setMinorCate(String minorCate) {
+        this.minorCate = minorCate;
+    }
 
-            public void setAuthor_id(String author_id) {
-                this.author_id = author_id;
-            }
+    public boolean is_le() {
+        return _le;
+    }
 
-            public String getState() {
-                return state;
-            }
+    public void set_le(boolean _le) {
+        this._le = _le;
+    }
 
-            public void setState(String state) {
-                this.state = state;
-            }
+    public boolean isAllowMonthly() {
+        return allowMonthly;
+    }
 
-            public String getId() {
-                return id;
-            }
+    public void setAllowMonthly(boolean allowMonthly) {
+        this.allowMonthly = allowMonthly;
+    }
 
-            public void setId(String id) {
-                this.id = id;
-            }
+    public boolean isAllowVoucher() {
+        return allowVoucher;
+    }
 
-            public String getChapterid() {
-                return chapterid;
-            }
+    public void setAllowVoucher(boolean allowVoucher) {
+        this.allowVoucher = allowVoucher;
+    }
 
-            public void setChapterid(String chapterid) {
-                this.chapterid = chapterid;
-            }
+    public boolean isHasCp() {
+        return hasCp;
+    }
 
-            public String getTopic() {
-                return topic;
-            }
+    public void setHasCp(boolean hasCp) {
+        this.hasCp = hasCp;
+    }
 
-            public void setTopic(String topic) {
-                this.topic = topic;
-            }
+    public int getPostCount() {
+        return postCount;
+    }
 
-            public String getDate_updated() {
-                return date_updated;
-            }
+    public void setPostCount(int postCount) {
+        this.postCount = postCount;
+    }
 
-            public void setDate_updated(String date_updated) {
-                this.date_updated = date_updated;
-            }
+    public int getLatelyFollower() {
+        return latelyFollower;
+    }
 
-            public int getSize() {
-                return size;
-            }
+    public void setLatelyFollower(int latelyFollower) {
+        this.latelyFollower = latelyFollower;
+    }
 
-            public void setSize(int size) {
-                this.size = size;
-            }
+    public int getLatelyFollowerBase() {
+        return latelyFollowerBase;
+    }
 
-            public String getBookname() {
-                return bookname;
-            }
+    public void setLatelyFollowerBase(int latelyFollowerBase) {
+        this.latelyFollowerBase = latelyFollowerBase;
+    }
 
-            public void setBookname(String bookname) {
-                this.bookname = bookname;
-            }
+    public int getFollowerCount() {
+        return followerCount;
+    }
 
-            public String getJd_url() {
-                return jd_url;
-            }
+    public void setFollowerCount(int followerCount) {
+        this.followerCount = followerCount;
+    }
 
-            public void setJd_url(String jd_url) {
-                this.jd_url = jd_url;
-            }
-        }
+    public int getWordCount() {
+        return wordCount;
+    }
+
+    public void setWordCount(int wordCount) {
+        this.wordCount = wordCount;
+    }
+
+    public int getSerializeWordCount() {
+        return serializeWordCount;
+    }
+
+    public void setSerializeWordCount(int serializeWordCount) {
+        this.serializeWordCount = serializeWordCount;
+    }
+
+    public int getMinRetentionRatio() {
+        return minRetentionRatio;
+    }
+
+    public void setMinRetentionRatio(int minRetentionRatio) {
+        this.minRetentionRatio = minRetentionRatio;
+    }
+
+    public String getRetentionRatio() {
+        return retentionRatio;
+    }
+
+    public void setRetentionRatio(String retentionRatio) {
+        this.retentionRatio = retentionRatio;
+    }
+
+    public String getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(String updated) {
+        this.updated = updated;
+    }
+
+    public boolean isIsSerial() {
+        return isSerial;
+    }
+
+    public void setIsSerial(boolean isSerial) {
+        this.isSerial = isSerial;
+    }
+
+    public int getChaptersCount() {
+        return chaptersCount;
+    }
+
+    public void setChaptersCount(int chaptersCount) {
+        this.chaptersCount = chaptersCount;
+    }
+
+    public String getLastChapter() {
+        return lastChapter;
+    }
+
+    public void setLastChapter(String lastChapter) {
+        this.lastChapter = lastChapter;
+    }
+
+    public boolean isDonate() {
+        return donate;
+    }
+
+    public void setDonate(boolean donate) {
+        this.donate = donate;
+    }
+
+    public String getCopyright() {
+        return copyright;
+    }
+
+    public void setCopyright(String copyright) {
+        this.copyright = copyright;
+    }
+
+    public List<String> getGender() {
+        return gender;
+    }
+
+    public void setGender(List<String> gender) {
+        this.gender = gender;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
     }
 }

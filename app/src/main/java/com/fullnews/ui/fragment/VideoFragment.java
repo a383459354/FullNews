@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -13,10 +14,10 @@ import android.view.ViewGroup;
 
 import com.fullnews.adapter.VideoListAdapter;
 import com.fullnews.entity.WYVideoBeans;
-import com.fullnews.ui.activity.VideoPlayActivity;
 import com.fullnews.listener.EndLessOnScrollListener;
 import com.fullnews.model.GetGsonData;
 import com.fullnews.presenter.VideoList;
+import com.fullnews.ui.activity.VideoPlayActivity;
 import com.zh.fullnews.R;
 
 import java.util.ArrayList;
@@ -26,9 +27,11 @@ import java.util.List;
  * Created by Administrator on 2016/10/31 0031.
  */
 
-public class VideoFragment extends Fragment implements VideoList, VideoListAdapter.OnItemClickListener{
+public class VideoFragment extends Fragment implements VideoList, VideoListAdapter.OnItemClickListener, SwipeRefreshLayout.OnRefreshListener {
 
+    private SwipeRefreshLayout mRefreshLayout;
     private RecyclerView mRecyclerView;
+
     private VideoListAdapter mAdapter;
 
     private LinearLayoutManager mLinearLayoutManager;
@@ -36,8 +39,7 @@ public class VideoFragment extends Fragment implements VideoList, VideoListAdapt
     private GetGsonData getGsonData;
 
     private List<WYVideoBeans.V9LG4B3A0Bean> mData;
-
-    private int startIndex=2;
+    private int startIndex = 2;
 
     public static VideoFragment newInstance(String content) {
         VideoFragment videoFragment = new VideoFragment();
@@ -54,14 +56,26 @@ public class VideoFragment extends Fragment implements VideoList, VideoListAdapt
     }
 
     //初始化界面
-    private void initView(View view){
-        mRecyclerView = (RecyclerView)view.findViewById(R.id.recyclerview_video);
+    private void initView(View view) {
+        mRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout_video);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview_video);
+
+        //这个是下拉刷新出现的那个圈圈要显示的颜色
+        mRefreshLayout.setColorSchemeResources(
+                R.color.colorRed,
+                R.color.colorYellow,
+                R.color.colorGreen
+        );
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        //为RecyclerView加载Adapter
-        mRecyclerView.setAdapter(mAdapter);
+        //监听SwipeRefreshLayout.OnRefreshListener
+        mRefreshLayout.setOnRefreshListener(this);
 
+        /**
+         * 监听addOnScrollListener这个方法，新建我们的EndLessOnScrollListener
+         * 在onLoadMore方法中去完成上拉加载的操作
+         * */
         mRecyclerView.addOnScrollListener(new EndLessOnScrollListener(mLinearLayoutManager) {
             @Override
             public void onLoadMore(int currentPage) {
@@ -72,26 +86,34 @@ public class VideoFragment extends Fragment implements VideoList, VideoListAdapt
     }
 
     //初始化一开始加载的数据
-    private void initData(){
+    private void initData() {
         mData = new ArrayList<WYVideoBeans.V9LG4B3A0Bean>();
-        getGsonData=new GetGsonData(getActivity());
-        getGsonData.ParseVideoData("http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/0-10.html",this,0);
+        getGsonData = new GetGsonData(getActivity());
+        getGsonData.ParseVideoData("http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/0-10.html", this, 0);
+    }
+
+    @Override
+    public void onRefresh() {
+        getGsonData.ParseVideoData("http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/0-10.html", this, 0);
+        //数据重新加载完成后，提示数据发生改变，并且设置现在不在刷新
+        mAdapter.notifyDataSetChanged();
+        mRefreshLayout.setRefreshing(false);
     }
 
     //每次上拉加载的时候，就加载十条数据到RecyclerView中
-    private void loadMoreData(){
-        startIndex+=10;
-        Log.d("index---",startIndex+"--");
-        getGsonData.ParseMoreVideoData("http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/"+startIndex+"-10.html",this,1);
-        Log.d("index---","http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/"+startIndex+"-10.html");
+    private void loadMoreData() {
+        startIndex += 10;
+        Log.d("index---", startIndex + "--");
+        getGsonData.ParseMoreVideoData("http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/" + startIndex + "-10.html", this, 1);
+        Log.d("index---", "http://c.3g.163.com/nc/video/list/V9LG4B3A0/n/" + startIndex + "-10.html");
     }
 
     @Override
     public void getVideoDataList(List<WYVideoBeans.V9LG4B3A0Bean> dataList) {
 //        mAdapter = new MyAdapter(this,dataList);
-        mData=dataList;
-        Log.d("index---","size-"+mData.size());
-        mAdapter=new VideoListAdapter(getActivity(),mData);
+        mData = dataList;
+        Log.d("index---", "size-" + mData.size());
+        mAdapter = new VideoListAdapter(getActivity(), mData);
         mAdapter.setOnItemClickListener(this);
         //为RecyclerView加载Adapter
         mRecyclerView.setAdapter(mAdapter);
@@ -99,18 +121,18 @@ public class VideoFragment extends Fragment implements VideoList, VideoListAdapt
 
     @Override
     public void getVideoMoreDataList(List<WYVideoBeans.V9LG4B3A0Bean> dataList) {
-        Log.d("index---","datalistsize-"+dataList.size());
+        Log.d("index---", "datalistsize-" + dataList.size());
         mData.addAll(dataList);
-        Log.d("index---","moresize-"+mData.size());
+        Log.d("index---", "moresize-" + mData.size());
         mAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void onItemClick(View view, int position) {
-        Log.d("+----+++++--",position+"---------------");
-        Intent intent=new Intent(getActivity(),VideoPlayActivity.class);
-        intent.putExtra("videoName",mData.get(position).getTitle());
-        intent.putExtra("videoUrl",mData.get(position).getMp4_url());
-        startActivityForResult(intent,2);
+        Log.d("+----+++++--", position + "---------------");
+        Intent intent = new Intent(getActivity(), VideoPlayActivity.class);
+        intent.putExtra("videoName", mData.get(position).getTitle());
+        intent.putExtra("videoUrl", mData.get(position).getMp4_url());
+        startActivityForResult(intent, 2);
     }
 }

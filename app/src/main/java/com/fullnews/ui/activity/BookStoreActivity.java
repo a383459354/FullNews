@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.fullnews.adapter.ViewPagerAdapter;
-import com.fullnews.ui.fragment.BookStoreListFragment;
+import com.fullnews.ui.fragment.BookStoreSexFragment;
 import com.zh.fullnews.R;
 
 import java.util.ArrayList;
@@ -28,6 +28,8 @@ public class BookStoreActivity extends AppCompatActivity implements View.OnClick
 
     private List<Fragment> tabFragments;
 
+    private List<Integer> tabImage;
+
     private ViewPagerAdapter viewPagerAdapter;
 
     @Override
@@ -36,20 +38,33 @@ public class BookStoreActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_book_store);
         initView();
         initData();
+        initTab();
+    }
+
+    private void initTab() {
+        for (int i = 0; i < item.size(); i++) {
+            TabLayout.Tab itemTab = mTabLayout.getTabAt(i);
+            if (itemTab!=null){
+                itemTab.setCustomView(R.layout.item_tab_layout_custom);
+                ImageView itemIv=(ImageView)itemTab.getCustomView().findViewById(R.id.iv_menu_item);
+                itemIv.setImageResource(tabImage.get(i));
+            }
+        }
     }
 
     private void initData() {
+        tabImage=new ArrayList<>();
+        tabImage.add(R.drawable.select_tab_book_men);
+        tabImage.add(R.drawable.select_tab_book_wumen);
         item = new ArrayList<>();
-        item.add("畅销");
-        item.add("新书");
-        item.add("全本");
+        item.add("男生");
+        item.add("女生");
         tabFragments = new ArrayList<>();
         for (int i=0;i<item.size();i++){
-            tabFragments.add(BookStoreListFragment.newInstance(item.get(i)));
+            tabFragments.add(BookStoreSexFragment.newInstance(item.get(i)));
         }
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), tabFragments, item);
         mViewPager.setAdapter(viewPagerAdapter);
-        mTabLayout.getTabAt(1).select();
     }
 
     private void initView() {
@@ -70,11 +85,11 @@ public class BookStoreActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.imageView_book_store_classify:
-
+                startActivityForResult(new Intent(BookStoreActivity.this,BookClassifyActivity.class),6);
                 break;
 
             case R.id.imageView_book_store_seek:
-                startActivityForResult(new Intent(BookStoreActivity.this,BookSeekActivity.class),6);
+                startActivityForResult(new Intent(BookStoreActivity.this,BookSeekActivity.class),7);
                 break;
         }
     }

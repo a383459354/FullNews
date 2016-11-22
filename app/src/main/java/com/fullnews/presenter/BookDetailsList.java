@@ -11,5 +11,5 @@ public interface BookDetailsList {
     /**
      * 获取小说信息
      */
-    public void getBookDetailsData(BookDetailsBeans.DataBean data);
+    public void getBookDetailsData(BookDetailsBeans bookDetailsBeans);
 }

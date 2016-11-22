@@ -10,33 +10,171 @@
 
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:background="#379be9"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
-        android:layout_height="50dp">
+        android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/imageView_seek_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/back"
-            android:layout_marginLeft="3dp"
-            android:id="@+id/imageView_seek_back"/>
-
-        <EditText
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:background="@mipmap/seek_input"
-            android:id="@+id/editText_seek" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/seek"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:id="@+id/imageView_seek_seek"/>
+            app:srcCompat="@mipmap/back" />
+
+
+        <EditText
+            android:id="@+id/edittext_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/seek_input" />
+
+
+        <ImageView
+            android:id="@+id/imageView_seek_seek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:srcCompat="@mipmap/seek" />
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linearlayout_one"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:text="热门搜索"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textview_refresh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="换一换" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textview_hot_tag1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_channel"
+                        android:padding="10dp" />
+
+                    <TextView
+                        android:id="@+id/textview_hot_tag2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_channel"
+                        android:padding="10dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textview_hot_tag3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_channel"
+                        android:padding="10dp" />
+
+                    <TextView
+                        android:id="@+id/textview_hot_tag4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_channel"
+                        android:padding="10dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearlayout_history"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_weight="1"
+                    android:text="搜索历史"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textview_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="清空" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_seek_history"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_seek_auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"></android.support.v7.widget.RecyclerView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_seek_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"></android.support.v7.widget.RecyclerView>
+    </FrameLayout>
+
 </LinearLayout>

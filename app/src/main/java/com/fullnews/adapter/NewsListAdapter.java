@@ -92,7 +92,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             ((ThirdHolder) holder).tvTitle.setText(mList.get(position).getTitle());
             ((ThirdHolder) holder).tvSource.setText(mList.get(position).getLaiyuan());
             ((ThirdHolder) holder).tvPubDate.setText(ConversionTime.pubDate(mList.get(position).getTime()));
-        }else{
+        } else{
         }
         if (mOnItemClickListener!=null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {

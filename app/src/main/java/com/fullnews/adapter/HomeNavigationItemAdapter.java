@@ -207,6 +207,7 @@ public class HomeNavigationItemAdapter extends RecyclerView.Adapter<RecyclerView
                 otherHolder.textView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if (isEditMode) {
                         RecyclerView recyclerView = ((RecyclerView) parent);
                         RecyclerView.LayoutManager manager = recyclerView.getLayoutManager();
                         int currentPiosition = otherHolder.getAdapterPosition();
@@ -275,6 +276,7 @@ public class HomeNavigationItemAdapter extends RecyclerView.Adapter<RecyclerView
                             moveOtherToMy(otherHolder);
                         }
                     }
+                }
                 });
                 return otherHolder;
         }

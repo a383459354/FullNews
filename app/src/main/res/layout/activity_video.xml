@@ -5,24 +5,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:background="#379be9"
-            android:layout_height="50dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="50dp">
 
-                <TextView
-                    android:text="视频"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="18dp"
-                    android:layout_marginStart="18dp"
-                    android:textSize="20sp"
-                    android:textColor="#ffffff"
-                    android:id="@+id/textView4"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="视频"
+            android:textColor="@color/header"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/tip" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout_video"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview_video"
@@ -30,5 +38,7 @@
             android:layout_height="match_parent">
 
         </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
 
 </LinearLayout>

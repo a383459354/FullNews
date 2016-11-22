@@ -31,7 +31,6 @@
         </activity>
         <activity android:name="com.fullnews.ui.activity.RedactNavigaionItemActivity" />
         <activity android:name="com.fullnews.ui.activity.DiscoverActivity" />
-        <activity android:name="com.fullnews.ui.activity.PersonageActivity" />
         <activity android:name="com.fullnews.ui.activity.NewsContentActivity" />
         <activity
             android:name="com.fullnews.ui.activity.VideoPlayActivity"
@@ -41,7 +40,11 @@
         <activity android:name="com.fullnews.ui.activity.BookStoreActivity" />
         <activity android:name="com.fullnews.ui.activity.BookDetailsActivity" />
         <activity android:name="com.fullnews.ui.activity.BookSeekActivity" />
-        <activity android:name=".StartActivity"></activity>
+        <activity android:name=".StartActivity" />
+        <activity android:name="com.fullnews.ui.activity.BookClassifyActivity" />
+        <activity android:name="com.fullnews.ui.activity.BookClassifyContentActivity" />
+        <activity android:name="com.fullnews.ui.activity.ReadChapterActivity" />
+        <activity android:name="com.fullnews.ui.activity.ReadActivity"></activity>
     </application>
 
 </manifest>

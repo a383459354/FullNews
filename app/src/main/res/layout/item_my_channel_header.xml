@@ -32,7 +32,7 @@
         android:gravity="center"
         android:textSize="13sp"
         android:background="@drawable/bg_btn"
-        android:textColor="@color/red_500"
+        android:textColor="@color/header"
         android:text="@string/edit"/>
 
     <View

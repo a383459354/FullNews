@@ -21,10 +21,14 @@
     <color name="black">#000</color>
     <color name="white">#fff</color>
 
-    <color name="tab_gray">#669999</color>
+    <color name="tab_gray">#CCCCCC</color>
     <color name="tab_blue">#00ccff</color>
 
-    <color name="header">#379be9</color>
-    <color name="header_text">#FFFFFF</color>
+    <color name="header">#435356</color>
+    <color name="header_txt">#FFFFFF</color>
+    <color name="tab_txt">#435356</color>
+    <color name="lucency">#00FFFFFF</color>
+    <color name="txtColor">#282828</color>
+
 
 </resources>

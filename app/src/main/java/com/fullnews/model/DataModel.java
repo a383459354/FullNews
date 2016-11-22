@@ -30,13 +30,12 @@ public class DataModel {
      */
     public void getNewslist(String url, final GetDataListener getDataListener){
         RequestQueue requestQueue =Volley.newRequestQueue(context);
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(
+        StringRequest strRequest=new StringRequest(
                 Request.Method.GET,
                 url,
-                null,
-                new Response.Listener<JSONObject>() {
+                new Response.Listener<String>() {
                     @Override
-                    public void onResponse(JSONObject response) {
+                    public void onResponse(String response) {
                         Log.d("response----",response.toString());
                         getDataListener.success(response.toString());
                     }
@@ -48,7 +47,8 @@ public class DataModel {
                     }
                 }
         ) ;
-        requestQueue.add(jsonObjectRequest);
+        strRequest.setShouldCache(false);
+        requestQueue.add(strRequest);
     }
 
     public void getVideolist(String url, final GetDataListener getDataListener){

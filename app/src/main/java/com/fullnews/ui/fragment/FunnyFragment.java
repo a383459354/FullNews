@@ -8,7 +8,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 import com.fullnews.adapter.ViewPagerAdapter;
 import com.zh.fullnews.R;
@@ -24,7 +23,6 @@ public class FunnyFragment extends Fragment {
 
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-    private ImageButton mBtnAdd;
 
     private List<String> item;
 
@@ -59,8 +57,8 @@ public class FunnyFragment extends Fragment {
     }
 
     private void initView(View view) {
-        mViewPager = (ViewPager) view.findViewById(R.id.pager_funny);
-        mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout_funny);
+        mViewPager = (ViewPager) view.findViewById(R.id.pager);
+        mTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         mTabLayout.setTabMode(TabLayout.MODE_FIXED);
         mTabLayout.setSelectedTabIndicatorHeight(0);
         mTabLayout.setupWithViewPager(mViewPager);

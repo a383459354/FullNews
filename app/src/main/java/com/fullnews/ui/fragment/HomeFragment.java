@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment implements HomePersenter, View.OnClic
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mTabLayout.setSelectedTabIndicatorHeight(0);
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mTabLayout.getLayoutParams();
-        params.weight = GetScreen.getScreenPix(getActivity()).widthPixels - 50;
+        params.weight = GetScreen.getScreenPix(getActivity()).widthPixels - 45;
         mTabLayout.setupWithViewPager(mViewPager);
     }
 

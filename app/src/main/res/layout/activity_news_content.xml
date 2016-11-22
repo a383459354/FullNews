@@ -24,7 +24,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:background="@color/tab_blue"
+            android:background="@color/white"
             android:layout_height="50dp">
 
             <TextView
@@ -34,7 +34,7 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:textSize="16sp"
-                android:textColor="#ffffff"
+                android:textColor="@color/txtColor"
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:id="@+id/textView_news_title" />

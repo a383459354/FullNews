@@ -9,45 +9,41 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="#379be9"
         android:layout_height="50dp">
 
-        <TextView
-            android:text="小说"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="18dp"
-            android:layout_marginStart="18dp"
-            android:textSize="20sp"
-            android:textColor="#ffffff"
-            android:id="@+id/textView4"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
         <ImageView
+            android:id="@+id/imageView_book"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/book"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:id="@+id/imageView_book" />
+            android:layout_marginRight="10dp"
+            app:srcCompat="@mipmap/book" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="小说"
+            android:textColor="@color/header"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefreshLayout_book"
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/tip" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_book"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerView_book"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </android.support.v7.widget.RecyclerView>
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

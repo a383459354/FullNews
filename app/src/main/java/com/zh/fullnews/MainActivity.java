@@ -11,12 +11,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.fullnews.adapter.MainPageAdapter;
+import com.fullnews.ui.fragment.BookFragment;
 import com.fullnews.ui.fragment.FunnyFragment;
 import com.fullnews.ui.fragment.HomeFragment;
-import com.fullnews.ui.fragment.BookFragment;
 import com.fullnews.ui.fragment.VideoFragment;
 
 import java.util.ArrayList;
@@ -52,8 +51,8 @@ public class MainActivity extends AppCompatActivity{
         tabImage=new ArrayList<>();
         tabImage.add(R.drawable.selector_menu_home);
         tabImage.add(R.drawable.selector_menu_video);
-        tabImage.add(R.drawable.selector_menu_discover);
-        tabImage.add(R.drawable.selector_menu_personage);
+        tabImage.add(R.drawable.selector_menu_book);
+        tabImage.add(R.drawable.selector_menu_funny);
     }
 
     private void initTab() {
@@ -64,8 +63,6 @@ public class MainActivity extends AppCompatActivity{
             TabLayout.Tab itemTab = mTablayout.getTabAt(i);
             if (itemTab!=null){
                 itemTab.setCustomView(R.layout.item_tab_layout_custom);
-                TextView itemTv = (TextView) itemTab.getCustomView().findViewById(R.id.tv_menu_item);
-                itemTv.setText(tabIndicators.get(i));
                 ImageView itemIv=(ImageView)itemTab.getCustomView().findViewById(R.id.iv_menu_item);
                 itemIv.setImageResource(tabImage.get(i));
             }
